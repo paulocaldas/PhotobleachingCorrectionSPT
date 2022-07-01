@@ -19,7 +19,7 @@ k_pb = kb*t_ex/t_ac
 
 Where kb is the photobleaching constant.  From eq.1 and eq.2, we can define keff as follow:
 
-k_eff* t_ac = k_off* t_ac + kb* t_ex
+k_eff*t_ac = k_off*t_ac + kb*t_ex
 
 Thus, we plot k_eff*t_ac as a function of t_ac to obtain k_off from the slope of a linear regression. 
 The true lifetime is then given by 1/k_off. The y-intercept corresponds to k_b*t_ex, which allows to estimate the photobleaching constant k_b.
