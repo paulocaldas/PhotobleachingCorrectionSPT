@@ -102,7 +102,11 @@ def ComputePhotobleachCorrection(t_exp = 0.05, thres = 2, cutoff = 100,
         ax[0].plot(x_fit, exp_decay(x_fit, *param), '--', color = colors(n*50), label = str(acq_time) + ' s') #plot fitting result
         
         # print summary
+<<<<<<< Updated upstream
         print('file : {} \t rate : {:.2}s/frame \t binsize : {:.2}s \t 1/Keff : {:.2}s'.format(os.path.basename(file[0]),acq_time, binsize, 1/param[0]))
+=======
+        print('file: {} \t rate: {:.2}s/frame \t binsize: {:.2}s \t 1/Keff: {:.4}s'.format(os.path.basename(file[0]),acq_time, binsize, 1/param[0]))
+>>>>>>> Stashed changes
         
         # save all parameters
         param_list.append([acq_time, param[0]])
@@ -128,9 +132,9 @@ def ComputePhotobleachCorrection(t_exp = 0.05, thres = 2, cutoff = 100,
     
     x_fit_lin = np.linspace(0, np.max(x_axis) + 0.2,500)
     ax[1].plot(x_fit_lin, linear_reg(x_fit_lin, *linear_param), '--', color = 'crimson', 
-               label = 'k_off = {:.3} sec \nk_pb = {:4.2} \ntau = {:4.2}'.format(koff,k_pb, tau))
+               label = 'k_off = {:4.3} \nk_pb = {:4.3} \ntau = {:4.3}'.format(koff,k_pb, tau))
 
-    ax[1].set_ylabel('k_eff * acq_time'); ax[1].set_xlabel('acq_time (s)')
+    ax[1].set_ylabel('k_eff * t_tl'); ax[1].set_xlabel('t_tl (s)')
     ax[1].legend(frameon = False, fontsize = 8)
 
     #'tau = {:.3} sec, C_pb = {:.3}'.format(tau,c_pb)
@@ -163,7 +167,7 @@ def ComputeLifetimeDistributions(t_exp = 0.05, thres = 2, cutoff = 100, bin_widt
             x_axis_limit = np.median(lifetimes) * 6
             x_fit = np.linspace(bins[0],bins[-1], 1000) # create array to fit the data
 
-            plt.hist(lifetimes, bins = binning, color = 'steelblue', edgecolor = 'w', density = True, label = 'acq_time='+str(acq_time) + ' s')
+            plt.hist(lifetimes, bins = binning, color = 'steelblue', edgecolor = 'w', density = True, label = 't_tl='+str(acq_time) + ' s')
             #plt.plot(bins, counts, 'o', markeredgecolor = 'black', markersize = 4, color = 'w') #plot original datapoints
             plt.plot(x_fit, exp_decay(x_fit, *param), '--', color = 'red', #plot fitting result
                        label = '1/k_eff='+str(round(1/keff,2)) + ' s') 
