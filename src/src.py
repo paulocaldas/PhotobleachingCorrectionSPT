@@ -66,7 +66,7 @@ def GetAcqTimes(files, dirname, thres = 0, cutoff = 100, col = 'TRACK_DURATION',
         
     return acq_times
 
-def ComputePhotobleachCorrection(t_exp = 0.5, thres = 1, cutoff = 100,
+def ComputePhotobleachCorrection(t_exp = 0.05, thres = 2, cutoff = 100,
                                  bin_width = 2, plot_xlim = 6, col = 'TRACK_DURATION'):
     
     ''' this function fits a monoexponential decay to each distribution and saves all 
@@ -102,10 +102,10 @@ def ComputePhotobleachCorrection(t_exp = 0.5, thres = 1, cutoff = 100,
         ax[0].plot(x_fit, exp_decay(x_fit, *param), '--', color = colors(n*50), label = str(acq_time) + ' s') #plot fitting result
         
         # print summary
-        print('file : {} \t rate : {:.2}s/frame \t binsize : {:.2}s \t 1/Keff : {:.2}s'.format(os.path.basename(file[0]),acq_time, binsize, param[1]))
+        print('file : {} \t rate : {:.2}s/frame \t binsize : {:.2}s \t 1/Keff : {:.2}s'.format(os.path.basename(file[0]),acq_time, binsize, 1/param[0]))
         
         # save all parameters
-        param_list.append([acq_time, param[1]])
+        param_list.append([acq_time, param[0]])
 
         ax[0].legend(frameon = False, fontsize = 8)
         ax[0].set_ylabel('normalized counts'); ax[0].set_xlabel('lifetimes (s)')
@@ -137,7 +137,7 @@ def ComputePhotobleachCorrection(t_exp = 0.5, thres = 1, cutoff = 100,
     
     return table_param
 	
-def ComputeLifetimeDistributions(t_exp = 0.5, thres = 1, cutoff = 100, bin_width = 2, col = 'TRACK_DURATION'):
+def ComputeLifetimeDistributions(t_exp = 0.05, thres = 2, cutoff = 100, bin_width = 2, col = 'TRACK_DURATION'):
     
     AcqTimes = GetAcqTimes(*OpenFileDialog(), thres = thres, cutoff = cutoff, col = col)
     
@@ -157,7 +157,7 @@ def ComputeLifetimeDistributions(t_exp = 0.5, thres = 1, cutoff = 100, bin_width
             bins = bins[:-1] + np.diff(bins/2) # compute bin center, instead of edges for fitting procedure
             param, cov = curve_fit(exp_decay, bins, counts, p0 = (counts[1], 1)) # fit exponential to datapoints
             
-            keff = round(param[1],3)
+            keff = round(param[0],3)
         
             plt.figure(figsize = (4,3), dpi = 120)
             x_axis_limit = np.median(lifetimes) * 6
