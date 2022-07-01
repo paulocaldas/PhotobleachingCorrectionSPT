@@ -2,10 +2,13 @@
 
 **Approach**
 
-Since TIRF microscopy only excites fluorophores close to glass coverslip, we can measure the time a fluorescently protein resides on the supported membrane, either due to direct interaction with the lipid bilayer, as in the case of FtsA, or because it is recruited by a membrane binding protein, as in the case of FtsZ. The termination of the fluorescent signal corresponds to the detachment of the protein from the membrane into the buffer solution. 
-To obtain quantitative information about protein recruitment to the membrane, we combine single molecule imaging experiments with automated particle-tracking. For this aim we use TrackMate, a very powerful and user-friendly plugin for ImageJ/Fiji. The output is a table containing a distribution of lifetimes for all the tracked particles for a given time-lapse movie. Each experimental condition is recorded using multiple acquisition times and the output tables from TrackMate are used as input for our script.
-The distribution of lifetimes of proteins on the membrane corresponds to a mono-exponential decay, which is described by:
+Since TIRF microscopy only excites fluorophores close to glass coverslip, we can use it in combination with supported lipid bilayers to quantify protein-membrane interactions, either due to direct interaction with the lipid bilayer, as in the case of FtsA, or because it is recruited by a membrane-binding protein, as in the case of FtsZ. The termination of the fluorescent signal corresponds to the detachment of the fluorescently labeled protein from the membrane into the buffer solution. However, due to photobleaching the recorded times can significantly deviate from the actually residence times of the protein. 
 
+To obtain quantitative information about protein recruitment to the membrane, we combine single molecule imaging experiments with automated particle-tracking. To correct for the contribution photobleaching we record time lapse movies at different acquisation rates as described previously [1,2]. 
+
+Single-molecule tracking is performed using TrackMate [3], a very powerful and user-friendly plugin for ImageJ/Fiji. The output is a table containing a distribution of lifetimes for all the tracked particles for a given time-lapse movie. Each experimental condition is recorded using multiple acquisition times and the output tables from TrackMate are used as input for our script.
+
+The distribution of lifetimes of proteins on the membrane corresponds to a mono-exponential decay, which is described by:
 
 <p align="center"> y(t) = a.exp(-k<sub>eff</sub>.t)   [Eq. 1] </p>
 
@@ -38,5 +41,5 @@ t_exp: in seconds; the exposure time used in all experiments <br>
 
 **References**<br>
 [1] Gebhardt, J., Suter, D., Roy, R. et al. Single-molecule imaging of transcription factor binding to DNA in live mammalian cells. Nat Methods 10, 421–426 (2013). https://doi.org/10.1038/nmeth.2411 <br>
-[2] N. Baranova, M. Loose, Chapter 21 - Single-molecule measurements to study polymerization dynamics of FtsZ-FtsA copolymers, Methods in Cell Biology, Academic Press,
-Volume 137, 2017, Pages 355-370, https://doi.org/10.1016/bs.mcb.2016.03.036.
+[2] N. Baranova, M. Loose, Chapter 21 - Single-molecule measurements to study polymerization dynamics of FtsZ-FtsA copolymers, Methods in Cell Biology, Academic Press, Volume 137, 2017, Pages 355-370, https://doi.org/10.1016/bs.mcb.2016.03.036.
+[3] Tinevez, J.-Y. et al. TrackMate: An open and extensible platform for single-particle tracking. Methods (San Diego, Calif.) 115, 80–90 (2017).
