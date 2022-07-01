@@ -102,11 +102,8 @@ def ComputePhotobleachCorrection(t_exp = 0.05, thres = 2, cutoff = 100,
         ax[0].plot(x_fit, exp_decay(x_fit, *param), '--', color = colors(n*50), label = str(acq_time) + ' s') #plot fitting result
         
         # print summary
-<<<<<<< Updated upstream
-        print('file : {} \t rate : {:.2}s/frame \t binsize : {:.2}s \t 1/Keff : {:.2}s'.format(os.path.basename(file[0]),acq_time, binsize, 1/param[0]))
-=======
-        print('file: {} \t rate: {:.2}s/frame \t binsize: {:.2}s \t 1/Keff: {:.4}s'.format(os.path.basename(file[0]),acq_time, binsize, 1/param[0]))
->>>>>>> Stashed changes
+        print('file:{} \t rate:{:.4}s/frame \t binsize:{:.4}s \t 1/Keff:{:.4}s'.format(os.path.basename(file[0]),
+                                                                                           acq_time, binsize, 1/param[0]))
         
         # save all parameters
         param_list.append([acq_time, param[0]])
