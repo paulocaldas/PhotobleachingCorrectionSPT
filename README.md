@@ -7,7 +7,7 @@ To obtain quantitative information about protein recruitment to the membrane, we
 The distribution of lifetimes of proteins on the membrane corresponds to a mono-exponential decay, which is described by:
 
 
-y(t) = a*exp(-k_eff*t)   [Eq. 1]
+y(t) = a.exp(-k_eff.t)   [Eq. 1]
 
 where k_eff is the effective detachment rate of protein from the membrane. This effective rate is the sum of the actual detachment rate of the protein (k_off) and photobleaching rate (k_pb):
 
@@ -15,14 +15,14 @@ k_eff = k_off + k_pb [Eq. 2]
 
 This photobleaching rate (k_pb) is proportional to the intensity and frequency we illuminate our sample, which is the ratio of the exposure time (t_ex) and acquisition time (t_ac) [1,2]:
 
-k_pb = kb*t_ex/t_ac
+k_pb = kb.t_ex/t_ac
 
 Where kb is the photobleaching constant.  From eq.1 and eq.2, we can define keff as follow:
 
-k_eff*t_ac = k_off*t_ac + kb*t_ex
+k_eff.t_ac = k_off.t_ac + kb.t_ex
 
-Thus, we plot k_eff*t_ac as a function of t_ac to obtain k_off from the slope of a linear regression. 
-The true lifetime is then given by 1/k_off. The y-intercept corresponds to k_b*t_ex, which allows to estimate the photobleaching constant k_b.
+Thus, we plot k_eff.t_ac as a function of t_ac to obtain k_off from the slope of a linear regression. 
+The true lifetime is then given by 1/k_off. The y-intercept corresponds to k_b.t_ex, which allows to estimate the photobleaching constant k_b.
 
 **Procedure**
 
