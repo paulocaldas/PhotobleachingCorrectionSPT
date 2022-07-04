@@ -41,5 +41,5 @@ t_exp: in seconds; the exposure time used in all experiments <br>
 
 **References**<br>
 [1] Gebhardt, J., Suter, D., Roy, R. et al. Single-molecule imaging of transcription factor binding to DNA in live mammalian cells. Nat Methods 10, 421–426 (2013). https://doi.org/10.1038/nmeth.2411 <br>
-[2] N. Baranova, M. Loose, Chapter 21 - Single-molecule measurements to study polymerization dynamics of FtsZ-FtsA copolymers, Methods in Cell Biology, Academic Press, Volume 137, 2017, Pages 355-370, https://doi.org/10.1016/bs.mcb.2016.03.036.
+[2] N. Baranova, M. Loose, Chapter 21 - Single-molecule measurements to study polymerization dynamics of FtsZ-FtsA copolymers, Methods in Cell Biology, Academic Press, Volume 137, 2017, Pages 355-370, https://doi.org/10.1016/bs.mcb.2016.03.036. <br>
 [3] Tinevez, J.-Y. et al. TrackMate: An open and extensible platform for single-particle tracking. Methods (San Diego, Calif.) 115, 80–90 (2017).
